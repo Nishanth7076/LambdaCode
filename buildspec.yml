@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - echo "Installing dependencies..."
+      - pip install pylint
+      - pip install bandit
+      - pip install boto3
+      - pylint helloworld.py
+      - bandit helloworld.py
+
+  build:
+    commands:
+      - echo "Zipping deployment package..."
+      - zip -r9 deployment_package.zip LambdaCode
+  post_build:
+    commands:
+      - echo "Updating lambda Function..."

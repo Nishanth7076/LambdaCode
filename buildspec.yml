@@ -6,10 +6,10 @@ phases:
     commands:
       - echo "Installing dependencies..."
       - pip install pylint
+      - pip install pylint-exit
       - pip install bandit
+      - pylint helloworld.py || pylint-exit $?
       - bandit helloworld.py
-      - pylint helloworld.py
-      
 
   build:
     commands:

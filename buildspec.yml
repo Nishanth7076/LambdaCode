@@ -7,9 +7,9 @@ phases:
       - echo "Installing dependencies..."
       - pip install pylint
       - pip install bandit
-      - pip install boto3
-      - pylint helloworld.py
       - bandit helloworld.py
+      - pylint helloworld.py
+      
 
   build:
     commands:

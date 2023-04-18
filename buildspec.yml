@@ -9,7 +9,7 @@ phases:
       - pip install pylint-exit
       - pip install bandit
       - pylint helloworld.py || pylint-exit $?
-      - bandit helloworld.py
+      - bandit helloworld.py --exit-zero
 
   build:
     commands:

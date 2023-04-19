@@ -3,6 +3,7 @@ phases:
   install:
     runtime-versions:
       python: 3.10
+      nodejs: 16
     commands:
       - echo "Installing dependencies..."
       - pip install pylint

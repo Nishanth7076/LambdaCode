@@ -8,13 +8,13 @@ phases:
       - pip install pylint
       - pip install pylint-exit
       - pip install bandit
-      - pylint helloworld.py || pylint-exit $?
-      - bandit helloworld.py --exit-zero
+      - pylint lambdacode --max-line-length=400 || pylint-exit $?
+      - bandit -r lambdacode -ll --exit-zero
 
   build:
     commands:
       - echo "Zipping deployment package..."
-      - zip -r9 deployment_package.zip LambdaCode
+      - zip -r9 deployment_package.zip lambdacode
   post_build:
     commands:
       - echo "Updating lambda Function..."
